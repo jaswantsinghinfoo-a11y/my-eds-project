@@ -256,72 +256,61 @@ main .section.highlight {
   padding: 40px 0;
 }
 
-/* Professional Left-Aligned Hero */
+/* This targets the 'hero' style you set in your Google Doc table */
 .section.hero {
   position: relative;
-  text-align: left; /* Aligns text to the left */
+  text-align: center;
   color: white;
-  padding: 0;
+  padding: 100px 20px; /* Gives some space around your text */
   margin: 0;
-  min-height: 80vh; /* Makes it taller for a premium feel */
+  min-height: 60vh;
   display: flex;
-  align-items: center; /* Vertically centers the text */
-  background-color: #000;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #111; /* fallback color */
   overflow: hidden;
 }
 
-/* The Secret Sauce: A Gradient Overlay */
-.section.hero::before {
-  content: '';
+/* This puts your laptop image in the background */
+.section.hero .default-content-wrapper:first-child p:first-child picture img {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  /* This creates the solid black on the left that fades out on the right */
-  background: linear-gradient(to right, #000 35%, rgba(0,0,0,0) 75%);
-  z-index: 1;
-}
-
-/* Background Image styling */
-.section.hero picture img {
-  position: absolute;
-  right: 0;
-  top: 0;
-  width: 70%; /* Image takes up the right side */
-  height: 100%;
   object-fit: cover;
   z-index: 0;
+  filter: brightness(0.4); /* Makes the image dark so your white text pops */
 }
 
-/* Text Container */
-.section.hero .default-content-wrapper {
+/* This brings your text and button to the foreground */
+.section.hero h1, 
+.section.hero p:not(:first-child), 
+.section.hero .button-container {
   position: relative;
-  z-index: 2;
-  padding-left: 10%; /* Pushes text away from the very edge */
-  max-width: 500px;
+  z-index: 1;
+  max-width: 800px;
 }
 
 .section.hero h1 {
-  font-size: 3.5rem;
-  font-weight: 800;
-  line-height: 1.1;
-  margin-bottom: 20px;
-}
-
-.section.hero p {
-  font-size: 1.25rem;
-  opacity: 0.9;
+  font-size: clamp(2rem, 5vw, 4rem);
+  margin-bottom: 1rem;
 }
 
 /* Professional Button Style */
 .section.hero a.button {
-  background-color: #fff; /* White button for high contrast */
-  color: #000;
-  padding: 14px 40px;
-  border-radius: 4px; /* Slightly squared for a modern tech look */
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  font-size: 0.9rem;
-  margin-top: 30px;
+  background-color: #0070f3;
+  color: white;
+  padding: 15px 35px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s ease;
+  display: inline-block;
+  margin-top: 1.5rem;
+}
+
+.section.hero a.button:hover {
+  background-color: #0056b3;
 }
