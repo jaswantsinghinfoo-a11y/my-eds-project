@@ -256,39 +256,51 @@ main .section.highlight {
   padding: 40px 0;
 }
 
-/* Hero Section Container */
-.section.hero-container {
+/* This targets the 'hero' style you set in your Google Doc table */
+.section.hero {
   position: relative;
-  padding: 0;
-  margin-bottom: 40px;
   text-align: center;
   color: white;
-  background-color: #000;
+  padding: 0;
+  margin: 0;
+  min-height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #111;
 }
 
-/* Make the Hero Image full-width */
-.hero-container picture img {
-  width: 100%;
-  height: 60vh; /* Adjust height as you like */
-  object-fit: cover;
-  filter: brightness(0.6); /* Darkens image so text is readable */
-}
-
-/* Position the Text over the Image */
-.hero-container .default-content-wrapper {
+/* Make the image cover the whole background */
+.section.hero picture img {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 90%;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  filter: brightness(0.5); /* Darkens the laptop image so your name is easy to read */
 }
 
-/* Style the 'View My Work' Button */
-.hero-container a.button {
-  background-color: #ff5000;
+/* Bring your text and button to the front */
+.section.hero h1, 
+.section.hero p, 
+.section.hero .button-container {
+  position: relative;
+  z-index: 1;
+}
+
+.section.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+/* Style the 'View My Work' button */
+.section.hero a {
+  background-color: #0070f3;
   color: white;
-  padding: 12px 30px;
-  border-radius: 25px;
+  padding: 12px 24px;
+  border-radius: 8px;
   text-decoration: none;
   font-weight: bold;
   display: inline-block;
