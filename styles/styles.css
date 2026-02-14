@@ -255,3 +255,42 @@ main .section.highlight {
   margin: 0;
   padding: 40px 0;
 }
+
+/* Hero Section Container */
+.section.hero-container {
+  position: relative;
+  padding: 0;
+  margin-bottom: 40px;
+  text-align: center;
+  color: white;
+  background-color: #000;
+}
+
+/* Make the Hero Image full-width */
+.hero-container picture img {
+  width: 100%;
+  height: 60vh; /* Adjust height as you like */
+  object-fit: cover;
+  filter: brightness(0.6); /* Darkens image so text is readable */
+}
+
+/* Position the Text over the Image */
+.hero-container .default-content-wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+}
+
+/* Style the 'View My Work' Button */
+.hero-container a.button {
+  background-color: #ff5000;
+  color: white;
+  padding: 12px 30px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: bold;
+  display: inline-block;
+  margin-top: 20px;
+}
