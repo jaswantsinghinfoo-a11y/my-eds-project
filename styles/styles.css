@@ -256,24 +256,22 @@ main .section.highlight {
   padding: 40px 0;
 }
 
-/* This targets the 'hero' style you set in your Google Doc table */
+/* Professional Left-Aligned Hero Section */
 .section.hero {
   position: relative;
-  text-align: center;
-  color: white;
-  padding: 100px 20px; /* Gives some space around your text */
-  margin: 0;
-  min-height: 60vh;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-color: #111; /* fallback color */
+  align-items: center; /* Vertically centers the text */
+  justify-content: flex-start; /* Aligns content to the left */
+  min-height: 500px;
+  padding: 0 10%; /* Provides the left-side breathing room */
+  margin: 0;
+  color: white;
+  background-color: #000;
   overflow: hidden;
 }
 
-/* This puts your laptop image in the background */
-.section.hero .default-content-wrapper:first-child p:first-child picture img {
+/* Background Image with Gradient Overlay */
+.section.hero picture img {
   position: absolute;
   top: 0;
   left: 0;
@@ -281,36 +279,57 @@ main .section.highlight {
   height: 100%;
   object-fit: cover;
   z-index: 0;
-  filter: brightness(0.4); /* Makes the image dark so your white text pops */
 }
 
-/* This brings your text and button to the foreground */
-.section.hero h1, 
-.section.hero p:not(:first-child), 
-.section.hero .button-container {
-  position: relative;
+/* Gradient to make left side dark for text readability */
+.section.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, rgba(0,0,0,0.9) 20%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0) 100%);
   z-index: 1;
-  max-width: 800px;
 }
 
+/* Text Container Alignment */
+.section.hero .default-content-wrapper {
+  position: relative;
+  z-index: 2;
+  max-width: 550px; /* Keeps text from stretching too far right */
+}
+
+/* Heading Styling (Jaswant Singh | AEM Developer) */
 .section.hero h1 {
-  font-size: clamp(2rem, 5vw, 4rem);
-  margin-bottom: 1rem;
+  font-size: 2.8rem; /* Large, bold tech font size */
+  font-weight: 700;
+  margin: 0 0 15px 0;
+  line-height: 1.2;
 }
 
-/* Professional Button Style */
+/* Subtext Styling */
+.section.hero p {
+  font-size: 1.2rem;
+  font-weight: 400;
+  margin-bottom: 30px;
+  opacity: 0.9;
+}
+
+/* Button Styling (View My Work) */
 .section.hero a.button {
-  background-color: #0070f3;
-  color: white;
-  padding: 15px 35px;
-  border-radius: 50px;
+  background-color: #9ea3d0; /* Matches the light purple/blue in your reference */
+  color: #fff;
+  padding: 12px 35px;
+  border-radius: 50px; /* Fully rounded pill shape */
+  font-size: 1.1rem;
+  font-weight: 600;
   text-decoration: none;
-  font-weight: bold;
-  transition: background 0.3s ease;
   display: inline-block;
-  margin-top: 1.5rem;
+  transition: transform 0.2s ease, background-color 0.2s ease;
 }
 
 .section.hero a.button:hover {
-  background-color: #0056b3;
+  transform: scale(1.05);
+  background-color: #8a8fb8;
 }
