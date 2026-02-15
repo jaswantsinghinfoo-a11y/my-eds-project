@@ -256,36 +256,37 @@ main .section.highlight {
   padding: 40px 0;
 }
 
-/* 1. Global Reset for the Hero Section Wrapper */
-main .section.hero-container {
-  padding: 0;
+/* 1. Remove all default AEM padding/margins from the Hero section */
+main .section.hero-container,
+main .section.hero-container > div {
   max-width: none;
+  padding: 0;
+  margin: 0;
 }
 
-/* 2. Professional Left-Aligned Hero Design */
+/* 2. Create the Left-Aligned Professional Hero */
 .section.hero {
   position: relative;
   display: flex;
   align-items: center;
-  min-height: 80vh; /* This makes it much taller and more professional */
-  padding: 0 8%;
+  min-height: 550px; /* Adjust this to match your screen height */
+  background-color: #000; /* Deep black background */
   color: white;
-  background-color: #000;
   overflow: hidden;
 }
 
-/* 3. Background Image with a Deep Professional Fade */
+/* 3. The Image - Pushed to the right and masked */
 .section.hero picture img {
   position: absolute;
+  right: 0;
   top: 0;
-  left: 0;
-  width: 100%;
+  width: 65%; /* Image only takes the right side */
   height: 100%;
   object-fit: cover;
-  z-index: 0;
+  z-index: 1;
 }
 
-/* This creates the dark 'wall' on the left for your text */
+/* 4. The Black Overlay - Fades the image into the black background */
 .section.hero::before {
   content: '';
   position: absolute;
@@ -293,47 +294,47 @@ main .section.hero-container {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(to right, #000 20%, rgba(0,0,0,0.6) 50%, rgba(0,0,0,0.2) 100%);
-  z-index: 1;
+  /* This creates a solid black wall on the left that fades out */
+  background: linear-gradient(to right, #000 40%, rgba(0,0,0,0) 80%);
+  z-index: 2;
 }
 
-/* 4. Text Content Formatting */
+/* 5. The Text - Forced to the left on the black background */
 .section.hero .default-content-wrapper {
   position: relative;
-  z-index: 2;
-  max-width: 600px;
+  z-index: 3;
+  margin-left: 8%; /* Proper left margin like your reference */
+  max-width: 500px;
+  text-align: left;
 }
 
 .section.hero h1 {
-  font-size: 3.5rem; /* Matches your reference's bold look */
+  font-size: 3rem;
   font-weight: 800;
-  margin: 0 0 10px 0;
+  margin-bottom: 15px;
   line-height: 1.1;
-  letter-spacing: -1px;
 }
 
 .section.hero p {
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   font-weight: 300;
-  margin-bottom: 35px;
+  margin-bottom: 30px;
   opacity: 0.9;
 }
 
-/* 5. The Pill-Shaped Button */
+/* 6. The Pill-Shaped Button */
 .section.hero a.button:any-link {
-  background-color: #9ea3d0; /* Soft purple/blue from your reference */
+  background-color: #9ea3d0;
   color: #fff;
-  padding: 16px 45px;
+  padding: 14px 40px;
   border-radius: 50px;
-  font-size: 1rem;
-  font-weight: 700;
+  font-size: 1.1rem;
+  font-weight: 600;
   text-decoration: none;
   display: inline-block;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  transition: transform 0.2s ease;
 }
 
 .section.hero a.button:hover {
-  background-color: #8b91c4;
-  transform: translateY(-2px);
+  transform: scale(1.05);
 }
