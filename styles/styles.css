@@ -256,21 +256,25 @@ main .section.highlight {
   padding: 40px 0;
 }
 
-/* Professional Left-Aligned Hero Section */
+/* 1. Global Reset for the Hero Section Wrapper */
+main .section.hero-container {
+  padding: 0;
+  max-width: none;
+}
+
+/* 2. Professional Left-Aligned Hero Design */
 .section.hero {
   position: relative;
   display: flex;
-  align-items: center; /* Vertically centers the text */
-  justify-content: flex-start; /* Aligns content to the left */
-  min-height: 500px;
-  padding: 0 10%; /* Provides the left-side breathing room */
-  margin: 0;
+  align-items: center;
+  min-height: 80vh; /* This makes it much taller and more professional */
+  padding: 0 8%;
   color: white;
   background-color: #000;
   overflow: hidden;
 }
 
-/* Background Image with Gradient Overlay */
+/* 3. Background Image with a Deep Professional Fade */
 .section.hero picture img {
   position: absolute;
   top: 0;
@@ -281,7 +285,7 @@ main .section.highlight {
   z-index: 0;
 }
 
-/* Gradient to make left side dark for text readability */
+/* This creates the dark 'wall' on the left for your text */
 .section.hero::before {
   content: '';
   position: absolute;
@@ -289,47 +293,47 @@ main .section.highlight {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(to right, rgba(0,0,0,0.9) 20%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0) 100%);
+  background: linear-gradient(to right, #000 20%, rgba(0,0,0,0.6) 50%, rgba(0,0,0,0.2) 100%);
   z-index: 1;
 }
 
-/* Text Container Alignment */
+/* 4. Text Content Formatting */
 .section.hero .default-content-wrapper {
   position: relative;
   z-index: 2;
-  max-width: 550px; /* Keeps text from stretching too far right */
+  max-width: 600px;
 }
 
-/* Heading Styling (Jaswant Singh | AEM Developer) */
 .section.hero h1 {
-  font-size: 2.8rem; /* Large, bold tech font size */
-  font-weight: 700;
-  margin: 0 0 15px 0;
-  line-height: 1.2;
+  font-size: 3.5rem; /* Matches your reference's bold look */
+  font-weight: 800;
+  margin: 0 0 10px 0;
+  line-height: 1.1;
+  letter-spacing: -1px;
 }
 
-/* Subtext Styling */
 .section.hero p {
-  font-size: 1.2rem;
-  font-weight: 400;
-  margin-bottom: 30px;
+  font-size: 1.3rem;
+  font-weight: 300;
+  margin-bottom: 35px;
   opacity: 0.9;
 }
 
-/* Button Styling (View My Work) */
-.section.hero a.button {
-  background-color: #9ea3d0; /* Matches the light purple/blue in your reference */
+/* 5. The Pill-Shaped Button */
+.section.hero a.button:any-link {
+  background-color: #9ea3d0; /* Soft purple/blue from your reference */
   color: #fff;
-  padding: 12px 35px;
-  border-radius: 50px; /* Fully rounded pill shape */
-  font-size: 1.1rem;
-  font-weight: 600;
+  padding: 16px 45px;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 700;
   text-decoration: none;
   display: inline-block;
-  transition: transform 0.2s ease, background-color 0.2s ease;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
 }
 
 .section.hero a.button:hover {
-  transform: scale(1.05);
-  background-color: #8a8fb8;
+  background-color: #8b91c4;
+  transform: translateY(-2px);
 }
